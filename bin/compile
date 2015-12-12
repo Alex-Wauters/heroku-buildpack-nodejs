@@ -129,6 +129,9 @@ build_dependencies() {
 header "Building dependencies"
 build_dependencies | output "$LOG_FILE"
 
+header "Building Files"
+npm run-script build | output "$LOG_FILE"
+
 cache_build() {
   local cache_directories=$(get_cache_directories)
 
@@ -153,6 +156,7 @@ summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
 }
+
 
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
