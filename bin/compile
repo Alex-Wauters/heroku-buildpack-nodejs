@@ -129,8 +129,9 @@ build_dependencies() {
 header "Building dependencies"
 build_dependencies | output "$LOG_FILE"
 
-header "Install Gulp globally"
+header "Install Gulp globally and locally"
 npm install gulp -g | output "$LOG_FILE"
+npm install gulp | output "$LOG_FILE"
 
 header "Building Files"
 npm run-script build | output "$LOG_FILE"
