@@ -136,6 +136,11 @@ npm install gulp | output "$LOG_FILE"
 header "Building Files"
 npm run-script build | output "$LOG_FILE"
 
+header "Install F-E dependencies"
+cd 'public'
+npm install | output "$LOG_FILE"
+cd ../
+
 cache_build() {
   local cache_directories=$(get_cache_directories)
 
